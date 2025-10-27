@@ -705,23 +705,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
  // import InputTag from 'vue-input-tag';
 
 
@@ -743,19 +726,17 @@ __webpack_require__.r(__webpack_exports__);
       isLoading: false,
       name: '',
       slug: '',
-      seller_id: 0,
+      shop_id: '',
       tags: [],
       tag_ids: '',
       tagSuggestions: [],
       brand: null,
-      tax_id: 0,
       type: 'packet',
       category_id: '',
       product_type: '',
       manufacturer: '',
       made_in: '',
       tag: '',
-      fssai_lic_no: '',
       return_status: 0,
       return_days: 0,
       cancelable_status: 0,
@@ -771,8 +752,7 @@ __webpack_require__.r(__webpack_exports__);
       is_unlimited_stock: 0,
       tax_included_in_price: 0,
       pincode_ids_exc: null,
-      sellers: null,
-      taxes: null,
+      shops: null,
       units: [],
       brands: [],
       countries: [],
@@ -794,8 +774,6 @@ __webpack_require__.r(__webpack_exports__);
       categoryOptions: "<option value=\"\">--Select Category--</option>",
       deleteImageIds: [],
       loggedUser: _Auth_js__WEBPACK_IMPORTED_MODULE_4__["default"].user,
-      validationMessage: '',
-      isValid: '',
       isBarcodeValid: '',
       input: [],
       mainImageerror: null,
@@ -833,18 +811,16 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.id = this.$route.params.id;
     this.clone = this.$route.params.clone;
-    this.getSellers();
-    this.getTaxes();
+    this.getShops();
     this.getUnits();
     this.getBrands();
     this.getCountries();
     this.getTags();
     this.getOrderStatus();
+    this.getCategories();
 
     if (this.$roleSeller == this.login_user.role.name) {
-      this.seller_id = this.login_user.seller.id;
-      this.getSeller();
-      this.getSellerCategories();
+      this.shop_id = this.login_user.shop.id;
     }
 
     if (this.id) {
@@ -1033,132 +1009,78 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
     },
-    getSellerCategories: function getSellerCategories() {
-      var _this4 = this;
-
-      if (this.seller_id !== 0 && this.seller_id !== "") {
-        this.isLoading = true;
-        var param = {
-          "seller_id": this.seller_id
-        };
-        axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/categories/seller_categories', {
-          params: param
-        }).then(function (response) {
-          _this4.isLoading = false;
-          var data = response.data;
-          _this4.categoryOptions = "<option value=\"\">--Select Category--</option>" + data;
-        });
-      }
-    },
-    getSeller: function getSeller() {
-      var _this5 = this;
-
-      if (this.seller_id !== 0 && this.seller_id !== "" && !this.id) {
-        this.isLoading = true;
-        var param = {
-          "seller_id": this.seller_id
-        };
-        axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/sellers/edit/' + this.seller_id, {
-          params: param
-        }).then(function (response) {
-          _this5.isLoading = false, _this5.require_products_approval = response.data.data.require_products_approval;
-          _this5.is_approved = _this5.require_products_approval == 0 ? 1 : 0;
-        });
-      }
-    },
     getCategories: function getCategories() {
-      var _this6 = this;
+      var _this4 = this;
 
       this.isLoading = true;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/categories/options').then(function (response) {
-        _this6.isLoading = false;
+        _this4.isLoading = false;
         var data = response.data;
-        _this6.categoryOptions = "<option value=\"\">--Select Category--</option>" + data;
+        _this4.categoryOptions = "<option value=\"\">--Select Category--</option>" + data;
       });
     },
-    getSellers: function getSellers() {
-      var _this7 = this;
+    getShops: function getShops() {
+      var _this5 = this;
 
       this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/sellers').then(function (response) {
-        _this7.isLoading = false;
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/shops').then(function (response) {
+        _this5.isLoading = false;
         var data = response.data;
-        _this7.sellers = data.data;
-      });
-    },
-    getTaxes: function getTaxes() {
-      var _this8 = this;
-
-      this.isLoading = true;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/products/taxes').then(function (response) {
-        _this8.isLoading = false;
-        var data = response.data;
-        _this8.taxes = data.data;
+        _this5.shops = data.data;
       });
     },
     getUnits: function getUnits() {
-      var _this9 = this;
+      var _this6 = this;
 
       this.isLoading = true;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/units/get').then(function (response) {
-        _this9.isLoading = false;
+        _this6.isLoading = false;
         var data = response.data;
-        _this9.units = data.data;
+        _this6.units = data.data;
       });
     },
     getBrands: function getBrands() {
-      var _this10 = this;
+      var _this7 = this;
 
       this.isLoading = true;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/products/brands/get').then(function (response) {
-        _this10.isLoading = false;
+        _this7.isLoading = false;
         var data = response.data;
-        _this10.brands = data.data;
+        _this7.brands = data.data;
       });
     },
     getCountries: function getCountries() {
-      var _this11 = this;
+      var _this8 = this;
 
       this.isLoading = true;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/countries/active').then(function (response) {
-        _this11.isLoading = false;
+        _this8.isLoading = false;
         var data = response.data;
-        _this11.countries = data.data;
+        _this8.countries = data.data;
       });
     },
     getTags: function getTags() {
-      var _this12 = this;
+      var _this9 = this;
 
       this.isLoading = true;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/products/tags').then(function (response) {
-        _this12.isLoading = false;
+        _this9.isLoading = false;
         var data = response.data;
-        _this12.tags = data.data;
+        _this9.tags = data.data;
       });
     },
     getOrderStatus: function getOrderStatus() {
-      var _this13 = this;
+      var _this10 = this;
 
       this.isLoading = true;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/order_statuses').then(function (response) {
-        _this13.isLoading = false;
+        _this10.isLoading = false;
         var data = response.data;
         var statusesToRemoveIds = [6, 7, 8];
-        _this13.order_status = data.data.filter(function (status) {
+        _this10.order_status = data.data.filter(function (status) {
           return !statusesToRemoveIds.includes(status.id);
         });
       });
-    },
-    validateFSSAINumber: function validateFSSAINumber() {
-      var fssaiRegex = /^[0-9]{14}$/;
-
-      if (fssaiRegex.test(this.fssai_lic_no)) {
-        this.validationMessage = '';
-        this.isValid = true;
-      } else {
-        this.validationMessage = 'Invalid FSSAI Number.';
-        this.isValid = false;
-      }
     },
     validateBarcode: function validateBarcode() {
       var barcodePattern = /^[A-Za-z0-9-]+$/;
@@ -1194,71 +1116,64 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     getProduct: function getProduct() {
-      var _this14 = this;
+      var _this11 = this;
 
       this.isLoading = true;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.$apiUrl + '/products/edit/' + this.id).then(function (response) {
         var data = response.data;
 
         if (data.status === 1) {
-          var _this14$record$indica;
+          var _this11$record$indica;
 
-          _this14.record = data.data;
-          _this14.name = _this14.record.name;
-          _this14.slug = _this14.record.slug;
-          _this14.barcode = _this14.record.barcode;
+          _this11.record = data.data;
+          _this11.name = _this11.record.name;
+          _this11.slug = _this11.record.slug;
+          _this11.barcode = _this11.record.barcode;
 
-          if (_this14.clone) {
-            _this14.name = '';
-            _this14.slug = '';
-            _this14.barcode = '';
+          if (_this11.clone) {
+            _this11.name = '';
+            _this11.slug = '';
+            _this11.barcode = '';
           }
 
-          _this14.seller_id = _this14.record.seller_id;
-
-          _this14.getSellerCategories();
-
-          _this14.getSeller();
-
-          _this14.tag_ids = _this14.record.tags.map(function (item) {
+          _this11.shop_id = _this11.record.shop_id;
+          _this11.tag_ids = _this11.record.tags.map(function (item) {
             return item.id;
           });
-          _this14.tax_id = _this14.record.tax_id;
-          _this14.brand = _this14.brands.find(function (item) {
-            return item.id === _this14.record.brand_id;
+          _this11.brand = _this11.brands.find(function (item) {
+            return item.id === _this11.record.brand_id;
           });
-          _this14.type = _this14.record.type;
-          _this14.category_id = _this14.record.category_id;
-          _this14.product_type = (_this14$record$indica = _this14.record.indicator) !== null && _this14$record$indica !== void 0 ? _this14$record$indica : "";
-          _this14.manufacturer = _this14.record.manufacturer;
-          _this14.made_in = _this14.countries.find(function (item) {
-            return item.id == _this14.record.made_in;
+          _this11.type = _this11.record.type;
+          _this11.category_id = _this11.record.category_id;
+          _this11.product_type = (_this11$record$indica = _this11.record.indicator) !== null && _this11$record$indica !== void 0 ? _this11$record$indica : "";
+          _this11.manufacturer = _this11.record.manufacturer;
+          _this11.made_in = _this11.countries.find(function (item) {
+            return item.id == _this11.record.made_in;
           });
-          _this14.tax_included_in_price = _this14.record.tax_included_in_price;
-          _this14.return_status = _this14.record.return_status;
-          _this14.return_days = _this14.record.return_days;
-          _this14.cancelable_status = _this14.record.cancelable_status;
-          _this14.till_status = _this14.record.till_status;
-          _this14.cod_allowed_status = _this14.record.cod_allowed;
-          _this14.max_allowed_quantity = _this14.record.total_allowed_quantity;
-          _this14.description = _this14.record.description;
-          _this14.is_approved = _this14.record.is_approved;
-          _this14.status = _this14.record.status;
-          _this14.is_unlimited_stock = _this14.record.is_unlimited_stock;
-          _this14.main_image_path = _this14.$storageUrl + _this14.record.image;
-          _this14.other_images = _this14.record.images;
-          _this14.fssai_lic_no = _this14.record.fssai_lic_no;
-          _this14.image = _this14.record.image;
-          _this14.meta_title = _this14.record.meta_title;
-          _this14.meta_keywords = _this14.record.meta_keywords;
-          _this14.schema_markup = _this14.record.schema_markup;
-          _this14.meta_description = _this14.record.meta_description;
-          var vm = _this14;
+          _this11.tax_included_in_price = _this11.record.tax_included_in_price;
+          _this11.return_status = _this11.record.return_status;
+          _this11.return_days = _this11.record.return_days;
+          _this11.cancelable_status = _this11.record.cancelable_status;
+          _this11.till_status = _this11.record.till_status;
+          _this11.cod_allowed_status = _this11.record.cod_allowed;
+          _this11.max_allowed_quantity = _this11.record.total_allowed_quantity;
+          _this11.description = _this11.record.description;
+          _this11.is_approved = _this11.record.is_approved;
+          _this11.status = _this11.record.status;
+          _this11.is_unlimited_stock = _this11.record.is_unlimited_stock;
+          _this11.main_image_path = _this11.$storageUrl + _this11.record.image;
+          _this11.other_images = _this11.record.images;
+          _this11.image = _this11.record.image;
+          _this11.meta_title = _this11.record.meta_title;
+          _this11.meta_keywords = _this11.record.meta_keywords;
+          _this11.schema_markup = _this11.record.schema_markup;
+          _this11.meta_description = _this11.record.meta_description;
+          var vm = _this11;
 
-          if (_this14.type == 'packet') {
-            _this14.inputs = [];
+          if (_this11.type == 'packet') {
+            _this11.inputs = [];
 
-            _this14.record.variants.forEach(function (item) {
+            _this11.record.variants.forEach(function (item) {
               var variantData = {
                 'id': item.id ? item.id : "",
                 'packet_measurement': item.measurement,
@@ -1273,13 +1188,13 @@ __webpack_require__.r(__webpack_exports__);
             });
           }
 
-          if (_this14.type == 'loose') {
+          if (_this11.type == 'loose') {
             var loose_stock = 0;
             var loose_stock_unit_id = 0;
             var status = 0;
-            _this14.inputs = [];
+            _this11.inputs = [];
 
-            _this14.record.variants.forEach(function (item) {
+            _this11.record.variants.forEach(function (item) {
               var _item$custom_title;
 
               var variantData = {
@@ -1297,29 +1212,29 @@ __webpack_require__.r(__webpack_exports__);
               status = item.status;
             });
 
-            _this14.loose_stock = loose_stock;
-            _this14.loose_stock_unit_id = loose_stock_unit_id;
-            _this14.status = status;
+            _this11.loose_stock = loose_stock;
+            _this11.loose_stock_unit_id = loose_stock_unit_id;
+            _this11.status = status;
           }
         } else {
-          _this14.showError(data.message);
+          _this11.showError(data.message);
 
           setTimeout(function () {
-            _this14.$router.back();
+            _this11.$router.back();
           }, 1000);
         }
       })["catch"](function (error) {
-        _this14.isLoading = false;
+        _this11.isLoading = false;
 
         if (error.message) {
-          _this14.showError(error.message);
+          _this11.showError(error.message);
         } else {
-          _this14.showError("Something went wrong!");
+          _this11.showError("Something went wrong!");
         }
       });
     },
     saveRecord: function saveRecord() {
-      var _this15 = this;
+      var _this12 = this;
 
       this.isLoading = true;
       var vm = this;
@@ -1332,14 +1247,12 @@ __webpack_require__.r(__webpack_exports__);
 
       formData.append('name', this.name);
       formData.append('slug', this.slug);
-      formData.append('seller_id', this.seller_id);
+      formData.append('shop_id', this.shop_id);
       formData.append('tag_ids', this.tag_ids);
-      formData.append('tax_id', this.tax_id);
       formData.append('brand_id', this.brand ? this.brand.id : 0);
       formData.append('description', this.description);
       formData.append('type', this.type);
       formData.append('is_unlimited_stock', this.is_unlimited_stock);
-      formData.append('fssai_lic_no', this.fssai_lic_no);
       formData.append('barcode', this.barcode);
       formData.append('meta_title', this.meta_title);
       formData.append('meta_keywords', this.meta_keywords);
@@ -1426,7 +1339,7 @@ __webpack_require__.r(__webpack_exports__);
         var data = res.data;
 
         if (data.status === 1) {
-          _this15.showMessage("success", data.message);
+          _this12.showMessage("success", data.message);
 
           setTimeout(function () {
             var _vm$loggedUser, _vm$loggedUser$role;
@@ -1451,11 +1364,11 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         vm.isLoading = false;
 
-        _this15.showError("Something went wrong!");
+        _this12.showError("Something went wrong!");
       });
     },
     deleteImage: function deleteImage(index, id, productImage) {
-      var _this16 = this;
+      var _this13 = this;
 
       var key = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : "";
       this.$swal.fire({
@@ -1469,15 +1382,15 @@ __webpack_require__.r(__webpack_exports__);
         cancelButtonColor: '#d33'
       }).then(function (result) {
         if (result.value) {
-          _this16.deleteImageIds.push(id);
+          _this13.deleteImageIds.push(id);
 
           if (productImage) {
-            _this16.other_images.splice(index, 1);
+            _this13.other_images.splice(index, 1);
           } else {
-            if (_this16.type === 'packet') {
-              _this16.inputs[key].images.splice(index, 1);
+            if (_this13.type === 'packet') {
+              _this13.inputs[key].images.splice(index, 1);
             } else {
-              _this16.inputs[key].loose_images.splice(index, 1);
+              _this13.inputs[key].loose_images.splice(index, 1);
             }
           }
         }
@@ -2002,18 +1915,18 @@ var render = function () {
                                   {
                                     name: "model",
                                     rawName: "v-model",
-                                    value: _vm.seller_id,
-                                    expression: "seller_id",
+                                    value: _vm.shop_id,
+                                    expression: "shop_id",
                                   },
                                 ],
                                 attrs: { type: "hidden" },
-                                domProps: { value: _vm.seller_id },
+                                domProps: { value: _vm.shop_id },
                                 on: {
                                   input: function ($event) {
                                     if ($event.target.composing) {
                                       return
                                     }
-                                    _vm.seller_id = $event.target.value
+                                    _vm.shop_id = $event.target.value
                                   },
                                 },
                               }),
@@ -2024,9 +1937,9 @@ var render = function () {
                                   "label",
                                   {
                                     staticClass: "control-label",
-                                    attrs: { for: "seller_id" },
+                                    attrs: { for: "shop_id" },
                                   },
-                                  [_vm._v(_vm._s(_vm.__("seller")))]
+                                  [_vm._v("shop")]
                                 ),
                                 _vm._v(" "),
                                 _c("i", { staticClass: "text-danger" }, [
@@ -2040,57 +1953,51 @@ var render = function () {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.seller_id,
-                                        expression: "seller_id",
+                                        value: _vm.shop_id,
+                                        expression: "shop_id",
                                       },
                                     ],
                                     staticClass: "form-control form-select",
                                     attrs: {
-                                      id: "seller_id",
-                                      name: "seller_id",
+                                      id: "shop_id",
+                                      name: "shop_id",
                                       required: "",
                                     },
                                     on: {
-                                      change: [
-                                        function ($event) {
-                                          var $$selectedVal =
-                                            Array.prototype.filter
-                                              .call(
-                                                $event.target.options,
-                                                function (o) {
-                                                  return o.selected
-                                                }
-                                              )
-                                              .map(function (o) {
-                                                var val =
-                                                  "_value" in o
-                                                    ? o._value
-                                                    : o.value
-                                                return val
-                                              })
-                                          _vm.seller_id = $event.target.multiple
-                                            ? $$selectedVal
-                                            : $$selectedVal[0]
-                                        },
-                                        function ($event) {
-                                          _vm.getSellerCategories()
-                                          _vm.getSeller()
-                                        },
-                                      ],
+                                      change: function ($event) {
+                                        var $$selectedVal =
+                                          Array.prototype.filter
+                                            .call(
+                                              $event.target.options,
+                                              function (o) {
+                                                return o.selected
+                                              }
+                                            )
+                                            .map(function (o) {
+                                              var val =
+                                                "_value" in o
+                                                  ? o._value
+                                                  : o.value
+                                              return val
+                                            })
+                                        _vm.shop_id = $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      },
                                     },
                                   },
                                   [
                                     _c("option", { attrs: { value: "" } }, [
-                                      _vm._v(_vm._s(_vm.__("select_seller"))),
+                                      _vm._v("Select_shop"),
                                     ]),
                                     _vm._v(" "),
-                                    _vm._l(_vm.sellers, function (seller) {
+                                    _vm._l(_vm.shops, function (shop) {
                                       return _c(
                                         "option",
-                                        { domProps: { value: seller.id } },
+                                        { domProps: { value: shop.id } },
                                         [
                                           _vm._v(
-                                            _vm._s(seller.name) +
+                                            _vm._s(shop.name) +
                                               "\n                                                "
                                           ),
                                         ]
@@ -2101,70 +2008,6 @@ var render = function () {
                                 ),
                               ]),
                             ],
-                        _vm._v(" "),
-                        _c("div", { staticClass: "col-md-6" }, [
-                          _c(
-                            "label",
-                            {
-                              staticClass: "control-label",
-                              attrs: { for: "tax_id" },
-                            },
-                            [_vm._v(_vm._s(_vm.__("tax")))]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.tax_id,
-                                  expression: "tax_id",
-                                },
-                              ],
-                              staticClass: "form-control form-select",
-                              attrs: { id: "tax_id", name: "tax_id" },
-                              on: {
-                                change: function ($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function (o) {
-                                      return o.selected
-                                    })
-                                    .map(function (o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.tax_id = $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                },
-                              },
-                            },
-                            [
-                              _c("option", { attrs: { value: "0" } }, [
-                                _vm._v("Select Tax"),
-                              ]),
-                              _vm._v(" "),
-                              _vm._l(_vm.taxes, function (tax) {
-                                return _c(
-                                  "option",
-                                  { domProps: { value: tax.id } },
-                                  [
-                                    _vm._v(
-                                      _vm._s(tax.title) +
-                                        " (" +
-                                        _vm._s(tax.percentage) +
-                                        " %)"
-                                    ),
-                                  ]
-                                )
-                              }),
-                            ],
-                            2
-                          ),
-                        ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-md-6" }, [
                           _c(
@@ -4453,52 +4296,6 @@ var render = function () {
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-6" }, [
                         _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-md-5" }, [
-                            _c("div", { staticClass: "form-group" }, [
-                              _c("label", { attrs: { for: "return_day" } }, [
-                                _vm._v(_vm._s(_vm.__("fssai_lic_no"))),
-                              ]),
-                              _vm._v(" "),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.fssai_lic_no,
-                                    expression: "fssai_lic_no",
-                                  },
-                                ],
-                                staticClass: "form-control",
-                                attrs: {
-                                  type: "text",
-                                  placeholder: _vm.__("fssai_lic_no"),
-                                },
-                                domProps: { value: _vm.fssai_lic_no },
-                                on: {
-                                  input: [
-                                    function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.fssai_lic_no = $event.target.value
-                                    },
-                                    _vm.validateFSSAINumber,
-                                  ],
-                                },
-                              }),
-                              _vm._v(" "),
-                              _vm.validationMessage
-                                ? _c("p", { staticStyle: { color: "red" } }, [
-                                    _vm._v(_vm._s(_vm.validationMessage)),
-                                  ])
-                                : _vm.isValid
-                                ? _c("p", { staticStyle: { color: "green" } }, [
-                                    _vm._v("FSSAI License Number is valid!"),
-                                  ])
-                                : _vm._e(),
-                            ]),
-                          ]),
-                          _vm._v(" "),
                           _c("div", { staticClass: "col-md-3" }, [
                             _c(
                               "div",

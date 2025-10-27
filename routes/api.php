@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Passport\Passport;
+use App\Http\Controllers\Api\ShopController;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -64,6 +65,7 @@ Route::middleware('auth:api')->group(function () {
         Route::get('product_count', [\App\Http\Controllers\API\CategoryApiController::class, 'countProductCategoryWise']);
         Route::get('seller_categories', [\App\Http\Controllers\API\CategoryApiController::class, 'getSellerCategories']);
         Route::get('/check-slug/{slug}', [\App\Http\Controllers\API\CategoryApiController::class,  'checkSlug']);
+        
     });
 
     Route::group(['prefix' => 'subcategories'], function () {
@@ -609,3 +611,6 @@ Route::prefix('oauth')->group(function () {
     Route::post('token/refresh', '\Laravel\Passport\Http\Controllers\TransientTokenController@refresh');
 });
 
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('shops', ShopController::class);
+});

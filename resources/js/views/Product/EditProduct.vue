@@ -82,28 +82,20 @@
                                         <input type="text" class="form-control" :placeholder="__('enter_product_slug')" v-model="slug" readonly>
                                     </div>
                                     <template v-if="this.$roleSeller == login_user.role.name">
-                                        <input type="hidden" v-model="seller_id">
+                                        <input type="hidden" v-model="shop_id">
                                     </template>
                                     <template v-else>
                                         <div class="col-md-6">
-                                            <label class="control-label" for="seller_id">{{ __('seller') }}</label>
+                                            <label class="control-label" for="shop_id">shop</label>
                                             <i class="text-danger">*</i>
-                                            <select id="seller_id" name="seller_id" class="form-control form-select"
-                                                    v-model="seller_id" required @change="getSellerCategories(); getSeller()">
-                                                <option value="">{{ __('select_seller') }}</option>
-                                                <option v-for="seller in sellers" :value="seller.id">{{ seller.name }}
+                                            <select id="shop_id" name="shop_id" class="form-control form-select"
+                                                    v-model="shop_id" required>
+                                                <option value="">Select_shop</option>
+                                                <option v-for="shop in shops" :value="shop.id">{{ shop.name }}
                                                 </option>
                                             </select>
                                         </div>
                                     </template>
-                                    <div class="col-md-6">
-                                        <label for="tax_id" class="control-label">{{ __('tax') }}</label>
-                                        <select id="tax_id" name="tax_id" class="form-control form-select"
-                                                v-model="tax_id">
-                                            <option value="0">Select Tax</option>
-                                            <option v-for="tax in taxes" :value="tax.id">{{ tax.title }} ({{ tax.percentage }} %)</option>
-                                        </select>
-                                    </div>
                                   <div class="col-md-6">
                                     <div class="form-group">
                                     <label for="tags" class="control-label">{{ __('tags') }} ( {{ __('these_tags_help_you_in_search_result') }} )</label>
@@ -564,19 +556,10 @@
 
                                         </div>
                                     </div>
-                               
+                                   
 
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-5">
-                                                <div class="form-group">
-                                                    <label for="return_day">{{ __('fssai_lic_no') }}</label>
-                                                    <input type="text" class="form-control" :placeholder="__('fssai_lic_no')" v-model="fssai_lic_no" @input="validateFSSAINumber">
-                                                    <p style="color:red" v-if="validationMessage">{{ validationMessage }}</p>
-                                                    <p style="color:green" v-else-if="isValid">FSSAI License Number is valid!</p>
-                                                    
-                                                </div>
-                                            </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>{{ __('is_returnable') }}</label><br>
@@ -720,19 +703,17 @@ export default {
 
             name: '',
             slug: '',
-            seller_id: 0,
+            shop_id: '',
             tags: [],
             tag_ids: '',
             tagSuggestions: [],
             brand:null,
-            tax_id: 0,
             type: 'packet',
             category_id: '',
             product_type: '',
             manufacturer: '',
             made_in: '',
             tag: '',
-            fssai_lic_no: '',
 
             return_status: 0,
             return_days: 0,
@@ -750,8 +731,7 @@ export default {
             tax_included_in_price:0,
             pincode_ids_exc: null,
 
-            sellers: null,
-            taxes: null,
+            shops: null,
             units: [],
             brands: [],
             countries: [],
@@ -774,8 +754,6 @@ export default {
             categoryOptions: "<option value=\"\">--Select Category--</option>",
             deleteImageIds:[],
             loggedUser: Auth.user,
-            validationMessage: '',
-            isValid: '',
             isBarcodeValid:'',
             input:[],
             mainImageerror: null,
@@ -809,17 +787,15 @@ export default {
         this.id = this.$route.params.id;
         this.clone = this.$route.params.clone;
        
-        this.getSellers();
-        this.getTaxes();
+        this.getShops();
         this.getUnits();
         this.getBrands();
         this.getCountries();
         this.getTags();
         this.getOrderStatus();
+        this.getCategories();
         if(this.$roleSeller == this.login_user.role.name){
-            this.seller_id = this.login_user.seller.id;
-            this.getSeller();            
-            this.getSellerCategories();    
+            this.shop_id = this.login_user.shop.id;
         }
         if (this.id) {
             this.getProduct();
@@ -1006,36 +982,6 @@ export default {
             }
         },
 
-        getSellerCategories(){
-            if (this.seller_id !== 0 && this.seller_id !== ""){
-                this.isLoading = true;
-                let param = {
-                    "seller_id": this.seller_id
-                }
-                axios.get(this.$apiUrl + '/categories/seller_categories',{
-                    params: param
-                }).then((response) => {
-                    this.isLoading = false
-                    let data = response.data;
-                    this.categoryOptions = `<option value="">--Select Category--</option>` + data
-                });
-            }
-        },
-        getSeller(){
-            if (this.seller_id !== 0 && this.seller_id !== "" && !this.id ){
-                this.isLoading = true;
-                let param = {
-                    "seller_id": this.seller_id
-                }
-                axios.get(this.$apiUrl + '/sellers/edit/'+this.seller_id,{
-                    params: param
-                }).then((response) => {
-                    this.isLoading = false,
-                    this.require_products_approval = response.data.data.require_products_approval;
-                    this.is_approved= this.require_products_approval == 0 ? 1 : 0;
-                });
-            }
-        },
         getCategories() {
             this.isLoading = true
             axios.get(this.$apiUrl + '/categories/options')
@@ -1046,22 +992,13 @@ export default {
                     
                 });
         },
-        getSellers() {
+        getShops() {
             this.isLoading = true
-            axios.get(this.$apiUrl + '/sellers') 
+            axios.get(this.$apiUrl + '/shops') 
                 .then((response) => {
                     this.isLoading = false
                     let data = response.data;
-                    this.sellers = data.data
-                });
-        },
-        getTaxes() {
-            this.isLoading = true
-            axios.get(this.$apiUrl + '/products/taxes')
-                .then((response) => {
-                    this.isLoading = false
-                    let data = response.data;
-                    this.taxes = data.data
+                    this.shops = data.data
                 });
         },
         getUnits() {
@@ -1109,17 +1046,6 @@ export default {
                     const statusesToRemoveIds = [6, 7, 8];
                     this.order_status = data.data.filter(status => !statusesToRemoveIds.includes(status.id));
                 });
-        },
-        validateFSSAINumber() {
-            const fssaiRegex = /^[0-9]{14}$/;
-
-            if (fssaiRegex.test(this.fssai_lic_no)) {
-                this.validationMessage = '';
-                 this.isValid = true;
-            } else {
-                this.validationMessage = 'Invalid FSSAI Number.';
-                 this.isValid = false;
-            }
         },
         validateBarcode() {
             const barcodePattern = /^[A-Za-z0-9-]+$/;
@@ -1170,13 +1096,9 @@ export default {
                             this.barcode = ''; 
                         }
                         
-                        this.seller_id = this.record.seller_id;
-                        this.getSellerCategories();
-                        this.getSeller();
+                        this.shop_id = this.record.shop_id;
 
                         this.tag_ids =this.record.tags.map(item => item.id);
-
-                        this.tax_id = this.record.tax_id;
 
                         this.brand = this.brands.find((item) => {
                             return item.id === this.record.brand_id;
@@ -1209,7 +1131,6 @@ export default {
                         this.is_unlimited_stock = this.record.is_unlimited_stock;
                         this.main_image_path = this.$storageUrl + this.record.image;
                         this.other_images = this.record.images;
-                        this.fssai_lic_no = this.record.fssai_lic_no;
                         this.image = this.record.image;
                         this.meta_title = this.record.meta_title;
                         this.meta_keywords = this.record.meta_keywords;
@@ -1286,14 +1207,12 @@ export default {
             }
             formData.append('name', this.name);
             formData.append('slug', this.slug);
-            formData.append('seller_id', this.seller_id);
+            formData.append('shop_id', this.shop_id);
             formData.append('tag_ids', this.tag_ids);
-            formData.append('tax_id', this.tax_id);
             formData.append('brand_id', this.brand ? this.brand.id : 0);
             formData.append('description', this.description);
             formData.append('type', this.type);
             formData.append('is_unlimited_stock', this.is_unlimited_stock);
-            formData.append('fssai_lic_no', this.fssai_lic_no);
             formData.append('barcode', this.barcode);
             formData.append('meta_title', this.meta_title);
             formData.append('meta_keywords', this.meta_keywords);

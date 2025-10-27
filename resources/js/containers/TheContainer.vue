@@ -279,48 +279,54 @@ export default {
                     permission:'stock_management',
                 },
                 {
-                    name: __('sellers'),
-                    icon: 'male',
-                    permission:'seller_list',
-                    submenu: [
-                        {
-                            name: __('add_seller'),
-                            icon : 'grid-fill',
-                            url:'/sellers/create',
-                            permission:'seller_create',
-                        },
-                        {
-                            name: __('seller_requests'),
-                            icon : 'grid-fill',
-                            url:'/registered_sellers',
-                            permission:'seller_requests',
-                        },
-                        {
-                            name: __('manage_sellers'),
-                            icon : 'grid-fill',
-                            url:'/sellers',
-                            permission:'seller_list',
-                        },
-                        // {
-                        //     name: __('seller_commissions'),
-                        //     icon : 'grid-fill',
-                        //     url:'/seller_commissions',
-                        //     permission:'seller_list',
-                        // },
-                        {
-                            name: __('seller_wallet_transactions'),
-                            icon : 'grid-fill',
-                            url:'/seller_wallet_transactions',
-                            permission:'seller_wallet_transactions',
-                        },
-                        {
-                            name: __('policies_seller'),
-                            icon : 'grid-fill',
-                            url:'/privacy_policy_seller',
-                            permission:'manage_privacy_policy_seller_app',
-                        },
-                    ],
+                    name: _('Shops'),
+                    icon : 'cubes',
+                    url: '/shops',
+                    permission:'stock_management',
                 },
+                // {
+                //     name: __('sellers'),
+                //     icon: 'male',
+                //     permission:'seller_list',
+                //     submenu: [
+                //         {
+                //             name: __('add_seller'),
+                //             icon : 'grid-fill',
+                //             url:'/sellers/create',
+                //             permission:'seller_create',
+                //         },
+                //         {
+                //             name: __('seller_requests'),
+                //             icon : 'grid-fill',
+                //             url:'/registered_sellers',
+                //             permission:'seller_requests',
+                //         },
+                //         {
+                //             name: __('manage_sellers'),
+                //             icon : 'grid-fill',
+                //             url:'/sellers',
+                //             permission:'seller_list',
+                //         },
+                //         // {
+                //         //     name: __('seller_commissions'),
+                //         //     icon : 'grid-fill',
+                //         //     url:'/seller_commissions',
+                //         //     permission:'seller_list',
+                //         // },
+                //         {
+                //             name: __('seller_wallet_transactions'),
+                //             icon : 'grid-fill',
+                //             url:'/seller_wallet_transactions',
+                //             permission:'seller_wallet_transactions',
+                //         },
+                //         {
+                //             name: __('policies_seller'),
+                //             icon : 'grid-fill',
+                //             url:'/privacy_policy_seller',
+                //             permission:'manage_privacy_policy_seller_app',
+                //         },
+                //     ],
+                // },
                 {
                     name: __('home_sliders'),
                     icon : 'picture-o',
@@ -568,18 +574,18 @@ export default {
                             url:'/seo-settings',
                             permission:'manage_store_settings',
                         },
-                        {
-                            name: __('system_registration'),
-                            icon : 'grid-fill',
-                            url:'/purchase_code',
-                            permission:'manage_system_registration',
-                        },
-                        {
-                            name: __('system_updater'),
-                            icon : 'grid-fill',
-                            url:'/system_updater',
-                            permission:'manage_store_settings',
-                        },
+                        // {
+                        //     name: __('system_registration'),
+                        //     icon : 'grid-fill',
+                        //     url:'/purchase_code',
+                        //     permission:'manage_system_registration',
+                        // },
+                        // {
+                        //     name: __('system_updater'),
+                        //     icon : 'grid-fill',
+                        //     url:'/system_updater',
+                        //     permission:'manage_store_settings',
+                        // },
 
                     ],
                 },
@@ -608,25 +614,25 @@ export default {
                     ]
                 },
 
-                {
-                    name:__('languages'),
-                    icon: 'language',
-                    permission:'city_list',
-                    submenu: [
-                        {
-                            name: __('add_language'),
-                            icon: 'grid-fill',
-                            url: '/languages/create',
-                            permission:'manage_dashboard',
-                        },
-                        {
-                            name: __('manage_languages'),
-                            icon: 'grid-fill',
-                            url: '/languages',
-                            permission:'manage_dashboard',
-                        }
-                    ]
-                },
+                // {
+                //     name:__('languages'),
+                //     icon: 'language',
+                //     permission:'city_list',
+                //     submenu: [
+                //         {
+                //             name: __('add_language'),
+                //             icon: 'grid-fill',
+                //             url: '/languages/create',
+                //             permission:'manage_dashboard',
+                //         },
+                //         {
+                //             name: __('manage_languages'),
+                //             icon: 'grid-fill',
+                //             url: '/languages',
+                //             permission:'manage_dashboard',
+                //         }
+                //     ]
+                // },
 
                 {
                     name:__('countries'),

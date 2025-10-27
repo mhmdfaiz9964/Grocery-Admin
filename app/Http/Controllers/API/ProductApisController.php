@@ -425,6 +425,7 @@ class ProductApisController extends Controller
                 'p.id as product_id',
                 'p.name',
                 'p.seller_id',
+                'p.shop_id',
                 'p.status',
                 'p.tax_id',
                 'p.image',
@@ -468,7 +469,8 @@ class ProductApisController extends Controller
                             $query->where('seller_id', $request->seller_id);
                         })
                 ],
-            'seller_id' => 'required',
+            'seller_id' => 'nullable',
+            'shop_id' => 'nullable',
            
             'id' => 'nullable|integer',
             'image' => $request->id ? 'nullable' : 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -493,7 +495,6 @@ class ProductApisController extends Controller
             'barcode' => 'nullable|unique:products,barcode',
         ],[
             'name.unique' => 'The product name has already been taken.',
-            'seller_id.required' => 'The seller name field is required.',
             'is_unlimited_stock.required' => 'The Stock Limit field is required.',
             'category_id.required' => 'The Category name field is required.',
             'packet_measurement.*.required_if' => 'The Packet Measurement is required when the type is "Packet".',
@@ -560,9 +561,10 @@ class ProductApisController extends Controller
             $product->name = $request->name;
             $product->slug = $count ? "{$slug}-{$count}" : $slug;
             $product->row_order = $row_order;
-            $product->tax_id = $request->tax_id ?? "";
+            $product->tax_id = !empty($request->tax_id) ? (int) $request->tax_id : 0;
             $product->brand_id = $request->brand_id ?? "";
             $product->seller_id = $request->seller_id;
+            $product->shop_id = $request->shop_id;
             $product->tags = $request->tags ?? "";
             $product->type = $request->type;
             $product->category_id = $request->category_id;
@@ -731,7 +733,8 @@ class ProductApisController extends Controller
                 })
             ],
 
-            'seller_id' => 'required',
+            'seller_id' => 'nullable',
+            'shop_id' =>  'nullable',
             'description' => 'required',
 
             'type' => 'required',
@@ -757,7 +760,6 @@ class ProductApisController extends Controller
         
         ],[
             'name.unique' => 'The product name has already been taken.',
-            'seller_id.required' => 'The seller name field is required.',
             'is_unlimited_stock.required' => 'The Stock Limit field is required.',
             'category_id.required' => 'The Category name field is required.',
             'packet_measurement.*.required_if' => 'The Packet Measurement is required when the type is "Packet".',
@@ -830,9 +832,10 @@ class ProductApisController extends Controller
             $product->slug = $count ? "{$slug}-{$count}" : $slug;
 
             $product->row_order = $row_order;
-            $product->tax_id = $request->tax_id;
+            $product->tax_id = !empty($request->tax_id) ? (int) $request->tax_id : 0;
             $product->brand_id = $request->brand_id;
             $product->seller_id = $request->seller_id;
+            $product->shop_id = $request->shop_id;
             $product->type = $request->type;
             $product->category_id = $request->category_id;
             $product->indicator = $request->product_type;

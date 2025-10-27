@@ -1789,3 +1789,407 @@
 #38 C:\\xampp\\htdocs\\projects\\egrocer\\eGrocer admin panel 2.0.10\\final_latest\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #39 {main}
 "} 
+[2025-10-27 20:21:21] production.ERROR: Declaration of App\Http\Controllers\Api\ShopController::index(Illuminate\Http\Request $request) must be compatible with App\Http\Controllers\Controller::index() {"userId":1,"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Declaration of App\\Http\\Controllers\\Api\\ShopController::index(Illuminate\\Http\\Request $request) must be compatible with App\\Http\\Controllers\\Controller::index() at D:\\Grocery\\Admin\\app\\Http\\Controllers\\API\\ShopController.php:16)
+[stacktrace]
+#0 {main}
+"} 
+[2025-10-27 20:23:15] production.ERROR: Call to a member function get() on null {"userId":1,"exception":"[object] (Error(code: 0): Call to a member function get() on null at D:\\Grocery\\Admin\\app\\Http\\Controllers\\API\\ShopController.php:18)
+[stacktrace]
+#0 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\Api\\ShopController->index(NULL)
+#1 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('index', Array)
+#2 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(259): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\Api\\ShopController), 'index')
+#3 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#4 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#5 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#6 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#7 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(125): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#10 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(87): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequestUsingNamedLimiter(Object(Illuminate\\Http\\Request), Object(Closure), 'api', Object(Closure))
+#11 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'api')
+#12 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#13 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'sanctum')
+#14 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 D:\\Grocery\\Admin\\app\\Http\\Middleware\\SetLang.php(77): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\SetLang->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#25 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(99): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#35 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#40 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#41 D:\\Grocery\\Admin\\public\\index.php(59): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#42 D:\\Grocery\\Admin\\server.php(21): require_once('D:\\\\Grocery\\\\Admi...')
+#43 {main}
+"} 
+[2025-10-27 21:33:34] production.ERROR: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Pomegranate Juice' for column 'category_id' at row 1 (Connection: mysql, SQL: insert into `products` (`name`, `row_order`, `slug`, `tags`, `status`, `cod_allowed`, `total_allowed_quantity`, `category_id`, `indicator`, `manufacturer`, `made_in`, `return_status`, `cancelable_status`, `till_status`, `description`, `image`, `seller_id`, `is_approved`, `brand_id`, `return_days`, `tax_id`, `fssai_lic_no`, `barcode`, `type`, `updated_at`, `created_at`) values (459, 1, 459, 459, 1, 1, 3, Pomegranate Juice, 1, 0, 0, 0, 1, received, Pomegranate Juice, products/1726486790_17053.jpg, 31, 1, 2, 0, 12345700000000, , 1497, packet, 2025-10-27 21:33:34, 2025-10-27 21:33:34)) {"userId":1,"exception":"[object] (Illuminate\\Database\\QueryException(code: HY000): SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Pomegranate Juice' for column 'category_id' at row 1 (Connection: mysql, SQL: insert into `products` (`name`, `row_order`, `slug`, `tags`, `status`, `cod_allowed`, `total_allowed_quantity`, `category_id`, `indicator`, `manufacturer`, `made_in`, `return_status`, `cancelable_status`, `till_status`, `description`, `image`, `seller_id`, `is_approved`, `brand_id`, `return_days`, `tax_id`, `fssai_lic_no`, `barcode`, `type`, `updated_at`, `created_at`) values (459, 1, 459, 459, 1, 1, 3, Pomegranate Juice, 1, 0, 0, 0, 1, received, Pomegranate Juice, products/1726486790_17053.jpg, 31, 1, 2, 0, 12345700000000, , 1497, packet, 2025-10-27 21:33:34, 2025-10-27 21:33:34)) at D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:829)
+[stacktrace]
+#0 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('insert into `pr...', Array, Object(Closure))
+#1 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(34): Illuminate\\Database\\Connection->run('insert into `pr...', Array, Object(Closure))
+#2 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert('insert into `pr...', Array, 'id')
+#3 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3549): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId(Object(Illuminate\\Database\\Query\\Builder), 'insert into `pr...', Array, 'id')
+#4 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1982): Illuminate\\Database\\Query\\Builder->insertGetId(Array, 'id')
+#5 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1334): Illuminate\\Database\\Eloquent\\Builder->__call('insertGetId', Array)
+#6 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1299): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(Illuminate\\Database\\Eloquent\\Builder), Array)
+#7 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1138): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(Illuminate\\Database\\Eloquent\\Builder))
+#8 D:\\Grocery\\Admin\\app\\Http\\Controllers\\API\\ProductApisController.php(1269): Illuminate\\Database\\Eloquent\\Model->save()
+#9 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\API\\ProductApisController->bulkUpload(Object(Illuminate\\Http\\Request))
+#10 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('bulkUpload', Array)
+#11 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(259): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\API\\ProductApisController), 'bulkUpload')
+#12 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#13 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#14 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#15 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#16 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#17 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(125): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#19 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(87): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequestUsingNamedLimiter(Object(Illuminate\\Http\\Request), Object(Closure), 'api', Object(Closure))
+#20 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'api')
+#21 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'api')
+#23 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#25 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#26 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#27 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#28 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#29 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#30 D:\\Grocery\\Admin\\app\\Http\\Middleware\\SetLang.php(77): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#31 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\SetLang->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#34 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#37 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#42 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(99): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#48 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#49 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#50 D:\\Grocery\\Admin\\public\\index.php(59): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#51 D:\\Grocery\\Admin\\server.php(21): require_once('D:\\\\Grocery\\\\Admi...')
+#52 {main}
+
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'Pomegranate Juice' for column 'category_id' at row 1 at D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php:45)
+[stacktrace]
+#0 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(45): PDOStatement->execute()
+#1 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(816): Illuminate\\Database\\MySqlConnection->Illuminate\\Database\\{closure}('insert into `pr...', Array)
+#2 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('insert into `pr...', Array, Object(Closure))
+#3 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\MySqlConnection.php(34): Illuminate\\Database\\Connection->run('insert into `pr...', Array, Object(Closure))
+#4 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Processors\\MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert('insert into `pr...', Array, 'id')
+#5 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php(3549): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId(Object(Illuminate\\Database\\Query\\Builder), 'insert into `pr...', Array, 'id')
+#6 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php(1982): Illuminate\\Database\\Query\\Builder->insertGetId(Array, 'id')
+#7 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1334): Illuminate\\Database\\Eloquent\\Builder->__call('insertGetId', Array)
+#8 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1299): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(Illuminate\\Database\\Eloquent\\Builder), Array)
+#9 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php(1138): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(Illuminate\\Database\\Eloquent\\Builder))
+#10 D:\\Grocery\\Admin\\app\\Http\\Controllers\\API\\ProductApisController.php(1269): Illuminate\\Database\\Eloquent\\Model->save()
+#11 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\API\\ProductApisController->bulkUpload(Object(Illuminate\\Http\\Request))
+#12 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('bulkUpload', Array)
+#13 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(259): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\API\\ProductApisController), 'bulkUpload')
+#14 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#15 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#16 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#17 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#18 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#19 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#20 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(125): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#21 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(87): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequestUsingNamedLimiter(Object(Illuminate\\Http\\Request), Object(Closure), 'api', Object(Closure))
+#22 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'api')
+#23 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'api')
+#25 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#27 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#28 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#29 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#30 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#31 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#32 D:\\Grocery\\Admin\\app\\Http\\Middleware\\SetLang.php(77): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\SetLang->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#35 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#36 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#37 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#38 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#39 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#43 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#44 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#45 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(99): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#46 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#47 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#48 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#49 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#50 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#51 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#52 D:\\Grocery\\Admin\\public\\index.php(59): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#53 D:\\Grocery\\Admin\\server.php(21): require_once('D:\\\\Grocery\\\\Admi...')
+#54 {main}
+"} 
+[2025-10-27 21:34:24] production.INFO: Error : SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'tax_id' at row 1 (Connection: mysql, SQL: insert into `products` (`name`, `slug`, `row_order`, `tax_id`, `brand_id`, `seller_id`, `shop_id`, `tags`, `type`, `category_id`, `indicator`, `manufacturer`, `made_in`, `tax_included_in_price`, `return_status`, `return_days`, `cancelable_status`, `till_status`, `cod_allowed`, `total_allowed_quantity`, `description`, `is_unlimited_stock`, `is_approved`, `status`, `fssai_lic_no`, `barcode`, `meta_title`, `meta_keywords`, `schema_markup`, `meta_description`, `image`, `updated_at`, `created_at`) values (Brown-Shelled Organic Farm Eggs, BrownShelled-Organic-Farm-Eggs, 1, , 0, ?, 2, , packet, 1, 1, ?, 0, 0, 0, 0, 0, ?, 0,  , <h2 class="font-bold text-2xl break-all">Brown-Shelled Organic Farm Eggs</h2>
+<div class="flex gap-4 items-center flex-wrap">
+<div class="flex gap-4">&nbsp;</div>
+<div class="px-2 py-1">
+<div class="flex text-xs">&nbsp;</div>
+</div>
+</div>, 0, 1, 1, , , , , , , products/1761581063_91978.jpg, 2025-10-27 21:34:23, 2025-10-27 21:34:23))  
+[2025-10-27 21:36:04] production.INFO: Error : SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'tax_id' at row 1 (Connection: mysql, SQL: insert into `products` (`name`, `slug`, `row_order`, `tax_id`, `brand_id`, `seller_id`, `shop_id`, `tags`, `type`, `category_id`, `indicator`, `manufacturer`, `made_in`, `tax_included_in_price`, `return_status`, `return_days`, `cancelable_status`, `till_status`, `cod_allowed`, `total_allowed_quantity`, `description`, `is_unlimited_stock`, `is_approved`, `status`, `fssai_lic_no`, `barcode`, `meta_title`, `meta_keywords`, `schema_markup`, `meta_description`, `image`, `updated_at`, `created_at`) values (Brown-Shelled Organic Farm Eggs, BrownShelled-Organic-Farm-Eggs, 1, , 0, ?, 2, , packet, 1, 1, ?, 0, 0, 0, 0, 0, ?, 0,  , <h2 class="font-bold text-2xl break-all">Brown-Shelled Organic Farm Eggs</h2>
+<div class="flex gap-4 items-center flex-wrap">
+<div class="flex gap-4">&nbsp;</div>
+<div class="px-2 py-1">
+<div class="flex text-xs">&nbsp;</div>
+</div>
+</div>, 0, 1, 1, , , , , , , products/1761581164_53775.jpg, 2025-10-27 21:36:04, 2025-10-27 21:36:04))  
+[2025-10-27 21:36:27] production.INFO: Error : SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'tax_id' at row 1 (Connection: mysql, SQL: insert into `products` (`name`, `slug`, `row_order`, `tax_id`, `brand_id`, `seller_id`, `shop_id`, `tags`, `type`, `category_id`, `indicator`, `manufacturer`, `made_in`, `tax_included_in_price`, `return_status`, `return_days`, `cancelable_status`, `till_status`, `cod_allowed`, `total_allowed_quantity`, `description`, `is_unlimited_stock`, `is_approved`, `status`, `fssai_lic_no`, `barcode`, `meta_title`, `meta_keywords`, `schema_markup`, `meta_description`, `image`, `updated_at`, `created_at`) values (Brown-Shelled Organic Farm Eggs, BrownShelled-Organic-Farm-Eggs, 1, , 0, ?, 2, , packet, 1, 1, ?, 0, 0, 0, 0, 0, ?, 0,  , <h2 class="font-bold text-2xl break-all">Brown-Shelled Organic Farm Eggs</h2>
+<div class="flex gap-4 items-center flex-wrap">
+<div class="flex gap-4">&nbsp;</div>
+<div class="px-2 py-1">
+<div class="flex text-xs">&nbsp;</div>
+</div>
+</div>, 0, 1, 1, , , , , , , products/1761581187_9767.jpg, 2025-10-27 21:36:27, 2025-10-27 21:36:27))  
+[2025-10-27 21:37:27] production.INFO: Error : SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'tax_id' at row 1 (Connection: mysql, SQL: insert into `products` (`name`, `slug`, `row_order`, `tax_id`, `brand_id`, `seller_id`, `shop_id`, `tags`, `type`, `category_id`, `indicator`, `manufacturer`, `made_in`, `tax_included_in_price`, `return_status`, `return_days`, `cancelable_status`, `till_status`, `cod_allowed`, `total_allowed_quantity`, `description`, `is_unlimited_stock`, `is_approved`, `status`, `fssai_lic_no`, `barcode`, `meta_title`, `meta_keywords`, `schema_markup`, `meta_description`, `image`, `updated_at`, `created_at`) values (Brown-Shelled Organic Farm Eggs, BrownShelled-Organic-Farm-Eggs, 1, , 0, ?, 2, , packet, 1, 1, ?, 0, 0, 0, 0, 0, ?, 0,  , <h2 class="font-bold text-2xl break-all">Brown-Shelled Organic Farm Eggs</h2>
+<div class="flex gap-4 items-center flex-wrap">
+<div class="flex gap-4">&nbsp;</div>
+<div class="px-2 py-1">
+<div class="flex text-xs">&nbsp;</div>
+</div>
+</div>, 0, 1, 1, , , , , , , products/1761581247_16732.jpg, 2025-10-27 21:37:27, 2025-10-27 21:37:27))  
+[2025-10-27 21:37:31] production.INFO: Error : SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'tax_id' at row 1 (Connection: mysql, SQL: insert into `products` (`name`, `slug`, `row_order`, `tax_id`, `brand_id`, `seller_id`, `shop_id`, `tags`, `type`, `category_id`, `indicator`, `manufacturer`, `made_in`, `tax_included_in_price`, `return_status`, `return_days`, `cancelable_status`, `till_status`, `cod_allowed`, `total_allowed_quantity`, `description`, `is_unlimited_stock`, `is_approved`, `status`, `fssai_lic_no`, `barcode`, `meta_title`, `meta_keywords`, `schema_markup`, `meta_description`, `image`, `updated_at`, `created_at`) values (Brown-Shelled Organic Farm Eggs, BrownShelled-Organic-Farm-Eggs, 1, , 0, ?, 2, , packet, 1, 1, ?, 0, 0, 0, 0, 0, ?, 0,  , <h2 class="font-bold text-2xl break-all">Brown-Shelled Organic Farm Eggs</h2>
+<div class="flex gap-4 items-center flex-wrap">
+<div class="flex gap-4">&nbsp;</div>
+<div class="px-2 py-1">
+<div class="flex text-xs">&nbsp;</div>
+</div>
+</div>, 0, 1, 1, , , , , , , products/1761581251_22679.jpg, 2025-10-27 21:37:31, 2025-10-27 21:37:31))  
+[2025-10-27 21:37:50] production.INFO: Error : SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'tax_id' at row 1 (Connection: mysql, SQL: insert into `products` (`name`, `slug`, `row_order`, `tax_id`, `brand_id`, `seller_id`, `shop_id`, `tags`, `type`, `category_id`, `indicator`, `manufacturer`, `made_in`, `tax_included_in_price`, `return_status`, `return_days`, `cancelable_status`, `till_status`, `cod_allowed`, `total_allowed_quantity`, `description`, `is_unlimited_stock`, `is_approved`, `status`, `fssai_lic_no`, `barcode`, `meta_title`, `meta_keywords`, `schema_markup`, `meta_description`, `image`, `updated_at`, `created_at`) values (Brown-Shelled Organic Farm Eggs, BrownShelled-Organic-Farm-Eggs, 1, , 0, ?, 2, , packet, 1, 1, ?, 0, 0, 0, 0, 0, ?, 0,  , <h2 class="font-bold text-2xl break-all">Brown-Shelled Organic Farm Eggs</h2>
+<div class="flex gap-4 items-center flex-wrap">
+<div class="flex gap-4">&nbsp;</div>
+<div class="px-2 py-1">
+<div class="flex text-xs">&nbsp;</div>
+</div>
+</div>, 0, 1, 1, , , , , , , products/1761581270_30961.jpg, 2025-10-27 21:37:50, 2025-10-27 21:37:50))  
+[2025-10-27 21:38:56] production.INFO: Error : SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_id' in 'field list' (Connection: mysql, SQL: insert into `products` (`name`, `slug`, `row_order`, `tax_id`, `brand_id`, `seller_id`, `shop_id`, `tags`, `type`, `category_id`, `indicator`, `manufacturer`, `made_in`, `tax_included_in_price`, `return_status`, `return_days`, `cancelable_status`, `till_status`, `cod_allowed`, `total_allowed_quantity`, `description`, `is_unlimited_stock`, `is_approved`, `status`, `fssai_lic_no`, `barcode`, `meta_title`, `meta_keywords`, `schema_markup`, `meta_description`, `image`, `updated_at`, `created_at`) values (Brown-Shelled Organic Farm Eggs, BrownShelled-Organic-Farm-Eggs, 1, , 0, ?, 2, , packet, 1, 1, ?, 0, 0, 0, 0, 0, ?, 0,  , <h2 class="font-bold text-2xl break-all">Brown-Shelled Organic Farm Eggs</h2>
+<div class="flex gap-4 items-center flex-wrap">
+<div class="flex gap-4">&nbsp;</div>
+<div class="px-2 py-1">
+<div class="flex text-xs">&nbsp;</div>
+</div>
+</div>, 0, 1, 1, , , , , , , products/1761581336_56182.jpg, 2025-10-27 21:38:56, 2025-10-27 21:38:56))  
+[2025-10-27 21:39:36] production.INFO: Error : SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_id' in 'field list' (Connection: mysql, SQL: insert into `products` (`name`, `slug`, `row_order`, `tax_id`, `brand_id`, `seller_id`, `shop_id`, `tags`, `type`, `category_id`, `indicator`, `manufacturer`, `made_in`, `tax_included_in_price`, `return_status`, `return_days`, `cancelable_status`, `till_status`, `cod_allowed`, `total_allowed_quantity`, `description`, `is_unlimited_stock`, `is_approved`, `status`, `fssai_lic_no`, `barcode`, `meta_title`, `meta_keywords`, `schema_markup`, `meta_description`, `image`, `updated_at`, `created_at`) values (Brown-Shelled Organic Farm Eggs, BrownShelled-Organic-Farm-Eggs, 1, , 0, ?, 2, , packet, 1, ?, ?, 0, 0, 0, 0, 0, ?, 1,  , <h2 class="font-bold text-2xl break-all">Brown-Shelled Organic Farm Eggs</h2>
+<div class="flex gap-4 items-center flex-wrap">
+<div class="flex gap-4">&nbsp;</div>
+<div class="px-2 py-1">
+<div class="flex text-xs">&nbsp;</div>
+</div>
+</div>, 0, 1, 1, , , , , , , products/1761581376_84199.jpg, 2025-10-27 21:39:36, 2025-10-27 21:39:36))  
+[2025-10-27 21:39:51] production.INFO: Error : SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_id' in 'field list' (Connection: mysql, SQL: insert into `products` (`name`, `slug`, `row_order`, `tax_id`, `brand_id`, `seller_id`, `shop_id`, `tags`, `type`, `category_id`, `indicator`, `manufacturer`, `made_in`, `tax_included_in_price`, `return_status`, `return_days`, `cancelable_status`, `till_status`, `cod_allowed`, `total_allowed_quantity`, `description`, `is_unlimited_stock`, `is_approved`, `status`, `fssai_lic_no`, `barcode`, `meta_title`, `meta_keywords`, `schema_markup`, `meta_description`, `image`, `updated_at`, `created_at`) values (Brown-Shelled Organic Farm Eggs, BrownShelled-Organic-Farm-Eggs, 1, , 0, ?, 2, , packet, 1, ?, ?, 0, 0, 0, 0, 0, ?, 1,  , <h2 class="font-bold text-2xl break-all">Brown-Shelled Organic Farm Eggs</h2>
+<div class="flex gap-4 items-center flex-wrap">
+<div class="flex gap-4">&nbsp;</div>
+<div class="px-2 py-1">
+<div class="flex text-xs">&nbsp;</div>
+</div>
+</div>, 0, 1, 1, , , , , , , products/1761581391_66246.jpg, 2025-10-27 21:39:51, 2025-10-27 21:39:51))  
+[2025-10-27 21:40:26] production.INFO: Error : SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'tax_id' at row 1 (Connection: mysql, SQL: insert into `products` (`name`, `slug`, `row_order`, `tax_id`, `brand_id`, `seller_id`, `shop_id`, `tags`, `type`, `category_id`, `indicator`, `manufacturer`, `made_in`, `tax_included_in_price`, `return_status`, `return_days`, `cancelable_status`, `till_status`, `cod_allowed`, `total_allowed_quantity`, `description`, `is_unlimited_stock`, `is_approved`, `status`, `fssai_lic_no`, `barcode`, `meta_title`, `meta_keywords`, `schema_markup`, `meta_description`, `image`, `updated_at`, `created_at`) values (Brown-Shelled Organic Farm Eggs, BrownShelled-Organic-Farm-Eggs, 1, , 0, ?, 2, , packet, 1, ?, ?, 0, 0, 0, 0, 0, ?, 1,  , <h2 class="font-bold text-2xl break-all">Brown-Shelled Organic Farm Eggs</h2>
+<div class="flex gap-4 items-center flex-wrap">
+<div class="flex gap-4">&nbsp;</div>
+<div class="px-2 py-1">
+<div class="flex text-xs">&nbsp;</div>
+</div>
+</div>, 0, 1, 1, , , , , , , products/1761581426_77364.jpg, 2025-10-27 21:40:26, 2025-10-27 21:40:26))  
+[2025-10-27 21:40:44] production.INFO: Error : SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'tax_id' at row 1 (Connection: mysql, SQL: insert into `products` (`name`, `slug`, `row_order`, `tax_id`, `brand_id`, `seller_id`, `shop_id`, `tags`, `type`, `category_id`, `indicator`, `manufacturer`, `made_in`, `tax_included_in_price`, `return_status`, `return_days`, `cancelable_status`, `till_status`, `cod_allowed`, `total_allowed_quantity`, `description`, `is_unlimited_stock`, `is_approved`, `status`, `fssai_lic_no`, `barcode`, `meta_title`, `meta_keywords`, `schema_markup`, `meta_description`, `image`, `updated_at`, `created_at`) values (Brown-Shelled Organic Farm Eggs, BrownShelled-Organic-Farm-Eggs, 1, , 0, ?, 2, , packet, 1, ?, ?, 0, 0, 0, 0, 0, ?, 1,  , <h2 class="font-bold text-2xl break-all">Brown-Shelled Organic Farm Eggs</h2>
+<div class="flex gap-4 items-center flex-wrap">
+<div class="flex gap-4">&nbsp;</div>
+<div class="px-2 py-1">
+<div class="flex text-xs">&nbsp;</div>
+</div>
+</div>, 0, 1, 1, , , , , , , products/1761581444_49966.jpg, 2025-10-27 21:40:44, 2025-10-27 21:40:44))  
+[2025-10-27 21:42:23] production.INFO: Error : SQLSTATE[HY000]: General error: 1366 Incorrect integer value: ' ' for column 'total_allowed_quantity' at row 1 (Connection: mysql, SQL: insert into `products` (`name`, `slug`, `row_order`, `tax_id`, `brand_id`, `seller_id`, `shop_id`, `tags`, `type`, `category_id`, `indicator`, `manufacturer`, `made_in`, `tax_included_in_price`, `return_status`, `return_days`, `cancelable_status`, `till_status`, `cod_allowed`, `total_allowed_quantity`, `description`, `is_unlimited_stock`, `is_approved`, `status`, `fssai_lic_no`, `barcode`, `meta_title`, `meta_keywords`, `schema_markup`, `meta_description`, `image`, `updated_at`, `created_at`) values (Brown-Shelled Organic Farm Eggs, BrownShelled-Organic-Farm-Eggs, 1, 0, 0, ?, 2, , packet, 1, ?, ?, 0, 0, 0, 0, 0, ?, 1,  , <h2 class="font-bold text-2xl break-all">Brown-Shelled Organic Farm Eggs</h2>
+<div class="flex gap-4 items-center flex-wrap">
+<div class="flex gap-4">&nbsp;</div>
+<div class="px-2 py-1">
+<div class="flex text-xs">&nbsp;</div>
+</div>
+</div>, 0, 1, 1, , , , , , , products/1761581543_75999.jpg, 2025-10-27 21:42:23, 2025-10-27 21:42:23))  
+[2025-10-27 21:42:44] production.INFO: Error : SQLSTATE[HY000]: General error: 1366 Incorrect integer value: ' ' for column 'total_allowed_quantity' at row 1 (Connection: mysql, SQL: insert into `products` (`name`, `slug`, `row_order`, `tax_id`, `brand_id`, `seller_id`, `shop_id`, `tags`, `type`, `category_id`, `indicator`, `manufacturer`, `made_in`, `tax_included_in_price`, `return_status`, `return_days`, `cancelable_status`, `till_status`, `cod_allowed`, `total_allowed_quantity`, `description`, `is_unlimited_stock`, `is_approved`, `status`, `fssai_lic_no`, `barcode`, `meta_title`, `meta_keywords`, `schema_markup`, `meta_description`, `image`, `updated_at`, `created_at`) values (Brown-Shelled Organic Farm Eggs, BrownShelled-Organic-Farm-Eggs, 1, 0, 0, ?, 2, , packet, 1, 1, ?, 0, 0, 0, 0, 0, ?, 1,  , <h2 class="font-bold text-2xl break-all">Brown-Shelled Organic Farm Eggs</h2>
+<div class="flex gap-4 items-center flex-wrap">
+<div class="flex gap-4">&nbsp;</div>
+<div class="px-2 py-1">
+<div class="flex text-xs">&nbsp;</div>
+</div>
+</div>, 0, 1, 1, , , , , , , products/1761581564_58932.jpg, 2025-10-27 21:42:44, 2025-10-27 21:42:44))  
+[2025-10-27 21:44:37] production.ERROR: Attempt to assign property "total_allowed_quantity" on null {"userId":1,"exception":"[object] (Error(code: 0): Attempt to assign property \"total_allowed_quantity\" on null at D:\\Grocery\\Admin\\app\\Http\\Controllers\\API\\ProductApisController.php:554)
+[stacktrace]
+#0 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\API\\ProductApisController->save(Object(Illuminate\\Http\\Request))
+#1 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('save', Array)
+#2 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(259): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\API\\ProductApisController), 'save')
+#3 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#4 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#5 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#6 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#7 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(125): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#10 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(87): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequestUsingNamedLimiter(Object(Illuminate\\Http\\Request), Object(Closure), 'api', Object(Closure))
+#11 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'api')
+#12 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#13 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'api')
+#14 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 D:\\Grocery\\Admin\\app\\Http\\Middleware\\SetLang.php(77): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\SetLang->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#25 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(99): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#35 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#40 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#41 D:\\Grocery\\Admin\\public\\index.php(59): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#42 D:\\Grocery\\Admin\\server.php(21): require_once('D:\\\\Grocery\\\\Admi...')
+#43 {main}
+"} 
+[2025-10-27 21:45:43] production.ERROR: Attempt to assign property "total_allowed_quantity" on null {"userId":1,"exception":"[object] (Error(code: 0): Attempt to assign property \"total_allowed_quantity\" on null at D:\\Grocery\\Admin\\app\\Http\\Controllers\\API\\ProductApisController.php:553)
+[stacktrace]
+#0 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\API\\ProductApisController->save(Object(Illuminate\\Http\\Request))
+#1 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('save', Array)
+#2 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(259): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\API\\ProductApisController), 'save')
+#3 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#4 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#5 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#6 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#7 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(125): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#10 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(87): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequestUsingNamedLimiter(Object(Illuminate\\Http\\Request), Object(Closure), 'api', Object(Closure))
+#11 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'api')
+#12 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#13 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'api')
+#14 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 D:\\Grocery\\Admin\\app\\Http\\Middleware\\SetLang.php(77): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\SetLang->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#25 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(99): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#35 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#40 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#41 D:\\Grocery\\Admin\\public\\index.php(59): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#42 D:\\Grocery\\Admin\\server.php(21): require_once('D:\\\\Grocery\\\\Admi...')
+#43 {main}
+"} 
+[2025-10-27 21:46:29] production.ERROR: Attempt to assign property "total_allowed_quantity" on null {"userId":1,"exception":"[object] (Error(code: 0): Attempt to assign property \"total_allowed_quantity\" on null at D:\\Grocery\\Admin\\app\\Http\\Controllers\\API\\ProductApisController.php:553)
+[stacktrace]
+#0 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\API\\ProductApisController->save(Object(Illuminate\\Http\\Request))
+#1 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('save', Array)
+#2 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(259): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\API\\ProductApisController), 'save')
+#3 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(205): Illuminate\\Routing\\Route->runController()
+#4 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#5 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#6 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#7 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#8 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(159): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#9 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(125): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequest(Object(Illuminate\\Http\\Request), Object(Closure), Array)
+#10 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php(87): Illuminate\\Routing\\Middleware\\ThrottleRequests->handleRequestUsingNamedLimiter(Object(Illuminate\\Http\\Request), Object(Closure), 'api', Object(Closure))
+#11 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\ThrottleRequests->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'api')
+#12 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#13 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure), 'api')
+#14 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#16 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#17 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#18 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#19 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#20 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#21 D:\\Grocery\\Admin\\app\\Http\\Middleware\\SetLang.php(77): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): App\\Http\\Middleware\\SetLang->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#25 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#26 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#27 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#28 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#29 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#30 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#31 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#32 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(99): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#35 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#40 D:\\Grocery\\Admin\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#41 D:\\Grocery\\Admin\\public\\index.php(59): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#42 D:\\Grocery\\Admin\\server.php(21): require_once('D:\\\\Grocery\\\\Admi...')
+#43 {main}
+"} 
+[2025-10-27 21:46:37] production.INFO: Error : SQLSTATE[HY000]: General error: 1366 Incorrect integer value: ' ' for column 'total_allowed_quantity' at row 1 (Connection: mysql, SQL: insert into `products` (`name`, `slug`, `row_order`, `tax_id`, `brand_id`, `seller_id`, `shop_id`, `tags`, `type`, `category_id`, `indicator`, `manufacturer`, `made_in`, `tax_included_in_price`, `return_status`, `return_days`, `cancelable_status`, `till_status`, `cod_allowed`, `total_allowed_quantity`, `description`, `is_unlimited_stock`, `is_approved`, `status`, `fssai_lic_no`, `barcode`, `meta_title`, `meta_keywords`, `schema_markup`, `meta_description`, `image`, `updated_at`, `created_at`) values (Brown-Shelled Organic Farm Eggs, BrownShelled-Organic-Farm-Eggs, 1, 0, 0, ?, 2, , packet, 1, 1, ?, 0, 0, 0, 0, 0, ?, 1,  , <h2 class="font-bold text-2xl break-all">Brown-Shelled Organic Farm Eggs</h2>
+<div class="flex gap-4 items-center flex-wrap">
+<div class="flex gap-4">&nbsp;</div>
+<div class="px-2 py-1">
+<div class="flex text-xs">&nbsp;</div>
+</div>
+</div>, 0, 1, 1, , , , , , , products/1761581797_88517.jpg, 2025-10-27 21:46:37, 2025-10-27 21:46:37))  

@@ -49,12 +49,6 @@ const BulkUpdate = () => import("../views/Product/BulkUpdate");
 const Brands = () => import("../views/Product/Brands/Brands");
 const ManageStock = () => import("../views/Product/ManageStock");
 
-const Sellers = () => import("../views/Seller/Sellers");
-const RegisteredSellers = () => import("../views/Seller/RegisteredSellers");
-const EditSeller = () => import("../views/Seller/EditSeller");
-const SellerCommissions = () => import("../views/Seller/Commissions/SellerCommissions")
-const SellerWalletTransactions = () => import("../views/Seller/WalletTransactions/SellerWalletTransactions");
-
 //Home Slider Images
 const HomeSliders = () => import("../views/HomeSliders/HomeSliders");
 
@@ -188,6 +182,9 @@ const Languages = () => import("../views/Languages/Languages")
 
 // Countries
 const Countries = () => import("../views/Countries/Countries")
+
+// Shops
+const Shops = () => import("../views/Shops/index.vue");
 
 /***********************************************************/
 /*Seller*/
@@ -631,72 +628,6 @@ fetchData();
                         permission: 'order_list',
                         role: adminRoles,
                         title:'Stock Management'
-
-                    },
-                },
-                {
-                    path: "registered_sellers",
-                    name: "RegisteredSellers",
-                    component: RegisteredSellers,
-                    meta: {
-                        permission: 'order_list',
-                        role: adminRoles,
-                        title:'Seller Requests'
-                    },
-                },
-                {
-                    path: "sellers",
-                    name: "Sellers",
-                    component: Sellers,
-                    meta: {
-                        permission: 'order_list',
-                        role: adminRoles,
-                        title:'Sellers'
-
-                    },
-                },
-                {
-                    path: "sellers/create",
-                    name: "CreateSellers",
-                    component: EditSeller,
-                    meta: {
-                        permission: 'order_list',
-                        role: adminRoles,
-                        title:'Create Sellers'
-
-                    },
-                },
-                {
-                    path: "sellers/edit/:id",
-                    name: "EditSeller",
-                    component: EditSeller,
-                    props: true,
-                    meta: {
-                        permission: 'order_list',
-                        role: adminRoles,
-                        title:'Edit Seller'
-
-                    },
-                },
-                {
-                    path: "seller_commissions",
-                    name: "Seller Commissions",
-                    component: SellerCommissions,
-                    meta: {
-                        permission: 'order_list',
-                        role: adminRoles,
-                        title:'Seller Commissions'
-
-                    },
-                },
-                {
-                    path: "seller_wallet_transactions",
-                    name: "Seller Wallet Transactions",
-                    component: SellerWalletTransactions,
-                    meta: {
-                        permission: 'order_list',
-                        role: adminRoles,
-                        title:'Seller Wallet Transactions'
 
                     },
                 },
@@ -1300,6 +1231,17 @@ fetchData();
                     },
                 },
                 {
+                    path: "shops",
+                    name: "shops",
+                    component: Shops,
+                    meta: {
+                        permission: 'order_list',
+                        role: adminRoles,
+                        title:'Shops List'
+                    },
+                },
+
+                {
 
                     path: "/settings",
                     name: "Settings",
@@ -1330,17 +1272,6 @@ fetchData();
                         permission: 'order_list',
                         role: adminRoles,
                         title:'Product Ratings'
-
-                    },
-                },
-                {
-                    path: "purchase_code",
-                    name: "System Registration",
-                    component: PurchaseCode,
-                    meta: {
-                        permission: 'order_list',
-                        role: adminRoles,
-                        title:'System Registration'
 
                     },
                 },
@@ -1443,27 +1374,6 @@ fetchData();
                     },
                 },
                 {
-                    path: "languages/:create",
-                    name: "languages_create",
-                    component: Languages,
-                    meta: {
-                        permission: 'manage_dashboard',
-                        role: adminRoles,
-                        title:'Languages'
-
-                    },
-                },
-                {
-                    path: "languages",
-                    name: "languages",
-                    component: Languages,
-                    meta: {
-                        permission: 'manage_dashboard',
-                        role: adminRoles,
-                        title:'Languages'
-                    },
-                },
-                {
                     path: "countries/:create",
                     name: "countries_create",
                     component: Countries,
@@ -1513,7 +1423,7 @@ fetchData();
         },
         {
             /* Here the name of the route is not usable. if you enable the name of this route then display the warning in the console.
-            *[vue-router] Named Route 'Seller' has a default child route. When navigating to this named route (:to="{name: 'Seller'"),
+            *[vue-router] Named Route 'Seller' has a default child route. When navigating to this named route (:to="{name: 'Seller'"},
             * the default child route will not be rendered. Remove the name from this route and use the name of the default child route for named links instead.
             * */
 
@@ -1779,16 +1689,6 @@ fetchData();
                     },
                 },
                 {
-                    path: "/seller/seller_wallet_transactions",
-                    name: "SellerWalletTransactions",
-                    component: SellerWalletTransactions,
-                    meta: {
-                        permission: 'order_list',
-                        role: sellerRoles,
-                        title:'Wallet Transactions'
-                    },
-                },
-                {
                     path: "/seller/notification_panel",
                     name: "NotificationPanel",
                     component: NotificationPanel,
@@ -1840,7 +1740,7 @@ fetchData();
         
         {
             /* Here the name of the route is not usable. if you enable the name of this route then display the warning in the console.
-            * [vue-router] Named Route 'delivery_boy' has a default child route. When navigating to this named route (:to="{name: 'delivery_boy'"),
+            * [vue-router] Named Route 'delivery_boy' has a default child route. When navigating to this named route (:to="{name: 'delivery_boy'"},
             * the default child route will not be rendered. Remove the name from this route and use the name of the default child route for named links instead.
             * */
 
@@ -2041,6 +1941,7 @@ fetchData();
                 title:'Reset Password'
             },
         },
+        
 
         /*Other Pages*/
        
@@ -2055,4 +1956,3 @@ fetchData();
     
    
 }
-
