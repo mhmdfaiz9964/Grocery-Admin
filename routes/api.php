@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Laravel\Passport\Passport;
-use App\Http\Controllers\Api\ShopController;
+use App\Http\Controllers\API\ShopController;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
